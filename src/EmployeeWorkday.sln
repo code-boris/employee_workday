@@ -1,0 +1,60 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeWorkday.Domain", "EmployeeWorkday.Domain\EmployeeWorkday.Domain.csproj", "{79240918-EF86-4C69-BE14-821FCB927C96}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeWorkday.Infrastructure", "EmployeeWorkday.Infrastructure\EmployeeWorkday.Infrastructure.csproj", "{19BD5DAF-580A-43EA-9975-968E9029107F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeWorkday.WebApi", "EmployeeWorkday.WebApi\EmployeeWorkday.WebApi.csproj", "{E457751E-3159-4722-9228-41C1C0D95534}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A889CB32-8193-40B4-A7F2-15542024200E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeWorkday.Domain.UnitTests", "tests\Unit\EmployeeWorkday.Domain.UnitTests\EmployeeWorkday.Domain.UnitTests.csproj", "{FBF839EE-015A-430C-8AF2-C2CDE7F45125}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeWorkday.Infrastructure.IntegrationTests", "tests\Integration\EmployeeWorkday.Infrastructure.IntegrationTests\EmployeeWorkday.Infrastructure.IntegrationTests.csproj", "{88876E19-6598-4084-991B-C4CB90BD8093}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{181BD8B8-5759-4144-8F51-D22D60DCFE35}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeWorkday.Application", "EmployeeWorkday.Application\EmployeeWorkday.Application.csproj", "{2D7D959B-5C76-4AAA-A819-788A05205D9A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C9598846-0F8D-4CDC-A0F6-2F158B86A119}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{79240918-EF86-4C69-BE14-821FCB927C96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79240918-EF86-4C69-BE14-821FCB927C96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79240918-EF86-4C69-BE14-821FCB927C96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79240918-EF86-4C69-BE14-821FCB927C96}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19BD5DAF-580A-43EA-9975-968E9029107F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19BD5DAF-580A-43EA-9975-968E9029107F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19BD5DAF-580A-43EA-9975-968E9029107F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19BD5DAF-580A-43EA-9975-968E9029107F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E457751E-3159-4722-9228-41C1C0D95534}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E457751E-3159-4722-9228-41C1C0D95534}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E457751E-3159-4722-9228-41C1C0D95534}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E457751E-3159-4722-9228-41C1C0D95534}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBF839EE-015A-430C-8AF2-C2CDE7F45125}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBF839EE-015A-430C-8AF2-C2CDE7F45125}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBF839EE-015A-430C-8AF2-C2CDE7F45125}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBF839EE-015A-430C-8AF2-C2CDE7F45125}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88876E19-6598-4084-991B-C4CB90BD8093}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88876E19-6598-4084-991B-C4CB90BD8093}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88876E19-6598-4084-991B-C4CB90BD8093}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88876E19-6598-4084-991B-C4CB90BD8093}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D7D959B-5C76-4AAA-A819-788A05205D9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D7D959B-5C76-4AAA-A819-788A05205D9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D7D959B-5C76-4AAA-A819-788A05205D9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D7D959B-5C76-4AAA-A819-788A05205D9A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{79240918-EF86-4C69-BE14-821FCB927C96} = {A889CB32-8193-40B4-A7F2-15542024200E}
+		{19BD5DAF-580A-43EA-9975-968E9029107F} = {A889CB32-8193-40B4-A7F2-15542024200E}
+		{E457751E-3159-4722-9228-41C1C0D95534} = {A889CB32-8193-40B4-A7F2-15542024200E}
+		{88876E19-6598-4084-991B-C4CB90BD8093} = {181BD8B8-5759-4144-8F51-D22D60DCFE35}
+		{FBF839EE-015A-430C-8AF2-C2CDE7F45125} = {181BD8B8-5759-4144-8F51-D22D60DCFE35}
+		{2D7D959B-5C76-4AAA-A819-788A05205D9A} = {A889CB32-8193-40B4-A7F2-15542024200E}
+	EndGlobalSection
+EndGlobal
