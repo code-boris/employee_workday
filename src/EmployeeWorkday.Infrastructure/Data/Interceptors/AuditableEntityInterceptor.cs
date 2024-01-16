@@ -1,6 +1,3 @@
-namespace EmployeeWorkday.Infrastructure.Interceptors;
+namespace EmployeeWorkday.Infrastructure.Data.Interceptors;
 
-public class AuditableEntityInterceptor
-{
-    
-}
+public class AuditableEntityInterceptor;

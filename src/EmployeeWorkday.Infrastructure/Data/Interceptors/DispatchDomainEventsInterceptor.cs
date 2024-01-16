@@ -1,19 +1,12 @@
-﻿using CleanArchitecture.Domain.Common;
+﻿using EmployeeWorkday.Domain.Common;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 
-namespace CleanArchitecture.Infrastructure.Data.Interceptors;
+namespace EmployeeWorkday.Infrastructure.Data.Interceptors;
 
-public class DispatchDomainEventsInterceptor : SaveChangesInterceptor
+public class DispatchDomainEventsInterceptor(IMediator mediator) : SaveChangesInterceptor
 {
-    private readonly IMediator _mediator;
-
-    public DispatchDomainEventsInterceptor(IMediator mediator)
-    {
-        _mediator = mediator;
-    }
-
     public override InterceptionResult<int> SavingChanges(DbContextEventData eventData, InterceptionResult<int> result)
     {
         DispatchDomainEvents(eventData.Context).GetAwaiter().GetResult();
@@ -29,7 +22,7 @@ public class DispatchDomainEventsInterceptor : SaveChangesInterceptor
         return await base.SavingChangesAsync(eventData, result, cancellationToken);
     }
 
-    public async Task DispatchDomainEvents(DbContext? context)
+    private async Task DispatchDomainEvents(DbContext? context)
     {
         if (context == null) return;
 
@@ -38,13 +31,14 @@ public class DispatchDomainEventsInterceptor : SaveChangesInterceptor
             .Where(e => e.Entity.DomainEvents.Any())
             .Select(e => e.Entity);
 
-        var domainEvents = entities
+        var baseEntities = entities.ToList();
+        var domainEvents = baseEntities
             .SelectMany(e => e.DomainEvents)
             .ToList();
 
-        entities.ToList().ForEach(e => e.ClearDomainEvents());
+        baseEntities.ToList().ForEach(e => e.ClearDomainEvents());
 
         foreach (var domainEvent in domainEvents)
-            await _mediator.Publish(domainEvent);
+            await mediator.Publish(domainEvent);
     }
 }

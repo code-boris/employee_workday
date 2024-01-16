@@ -1,6 +1,3 @@
-namespace EmployeeWorkday.Infrastructure.Repository;
+namespace EmployeeWorkday.Infrastructure.Data.Repository;
 
-public class Repository
-{
-    
-}
+public class Repository;

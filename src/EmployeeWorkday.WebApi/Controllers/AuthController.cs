@@ -1,6 +1,9 @@
-namespace EmployeeWorkday.WebApi;
+using Microsoft.AspNetCore.Mvc;
 
-public class AuthController
+namespace EmployeeWorkday.WebApi.Controllers;
+
+[ApiController]
+[Route("api/[controller]")]
+public class AuthController : ControllerBase
 {
-    
 }

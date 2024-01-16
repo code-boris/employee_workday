@@ -1,24 +1,23 @@
+using EmployeeWorkday.Domain.Entities.Employee;
+using EmployeeWorkday.Domain.Entities.Workday;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using EmployeeWorkday.Domain;
-using EmployeeWorkday.Domain.Model;
 
-namespace EmployeeWorkday.Infrastructure;
+namespace EmployeeWorkday.Infrastructure.Data;
 
-public class AppDbContext: DbContext
+public sealed class AppDbContext : DbContext
 {
-
-    IConfiguration appConfig;
-    
-    public AppDbContext(IConfiguration config)
-    {
-        appConfig = config;
-    }
-    
     public DbSet<Employee> Employees { get; set; }
     public DbSet<WorkDay> WorkDays { get; set; }
-    
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseNpgsql(Environment.GetEnvironmentVariable("DefaultConnection"));
 
+    public AppDbContext()
+    {
+        Database.EnsureDeleted();
+        Database.EnsureCreated();
+    }
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        optionsBuilder.UseNpgsql("User ID=postgres;Password=asupim55;Server=localhost;Port=5432;Database=db_task;");
+        base.OnConfiguring(optionsBuilder);
+    }
 }
