@@ -9,14 +9,14 @@ namespace EmployeeWorkday.WebApi.Controllers;
 [Route("api/[controller]")]
 public class EmployeeController(IApplicationMediator mediator) : ControllerBase
 {
-    [HttpGet("GetAll")]
+    [HttpGet]
     public IActionResult GetAllEmployees()
     {
         var employees = mediator.Send<EmployeeRequest, IReadOnlyCollection<Employee>>(new EmployeeRequest());
         return Ok(employees);
     }
 
-    [HttpGet("{id:guid}", Name = "Get")]
+    [HttpGet("{id:guid}")]
     public IActionResult GetEmployeeById(Guid id)
     {
         var employeeRequest = new EmployeeRequest { Id = id };
@@ -30,7 +30,7 @@ public class EmployeeController(IApplicationMediator mediator) : ControllerBase
         return Ok(employee);
     }
 
-    [HttpPost(Name = "Create")]
+    [HttpPost]
     public IActionResult CreateEmployee([FromBody] Employee? employee)
     {
         if (employee == null)
@@ -49,7 +49,7 @@ public class EmployeeController(IApplicationMediator mediator) : ControllerBase
         return CreatedAtAction(nameof(GetEmployeeById), new { id = createdEmployee.Id }, createdEmployee);
     }
 
-    [HttpPut("{id:guid}", Name = "Update")]
+    [HttpPut("{id:guid}")]
     public async Task<IActionResult> UpdateEmployee(Guid id, [FromBody] Employee? updatedEmployee)
     {
         if (updatedEmployee == null)
@@ -79,8 +79,8 @@ public class EmployeeController(IApplicationMediator mediator) : ControllerBase
 
         return Ok(existingEmployee);
     }
-
-    [HttpDelete("{id:guid}", Name = "Delete")]
+    
+    [HttpDelete("{id:guid}")]
     public async Task<IActionResult> DeleteEmployee(Guid id)
     {
         var employeeRequest = new EmployeeRequest { Id = id };

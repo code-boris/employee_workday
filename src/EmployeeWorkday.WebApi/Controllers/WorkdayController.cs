@@ -9,14 +9,14 @@ namespace EmployeeWorkday.WebApi.Controllers;
 [Route("api/[controller]")]
 public class WorkdayController(IApplicationMediator mediator) : ControllerBase
 {
-    [HttpGet("GetAll")]
+    [HttpGet]
     public IActionResult GetAllWorkdays()
     {
         var workdays = mediator.Send<WorkdayRequest, IReadOnlyCollection<WorkDay>>(new WorkdayRequest());
         return Ok(workdays);
     }
 
-    [HttpGet("{id:guid}", Name = "Get")]
+    [HttpGet("{id:guid}")]
     public IActionResult GetWorkdayById(Guid id)
     {
         var workdayRequest = new WorkdayRequest { Id = id };
@@ -30,7 +30,7 @@ public class WorkdayController(IApplicationMediator mediator) : ControllerBase
         return Ok(workday);
     }
 
-    [HttpPost(Name = "Create")]
+    [HttpPost]
     public IActionResult CreateWorkday([FromBody] WorkDay? workday)
     {
         if (workday == null)
@@ -50,7 +50,7 @@ public class WorkdayController(IApplicationMediator mediator) : ControllerBase
         return CreatedAtAction(nameof(GetWorkdayById), new { id = createdWorkday.Id }, createdWorkday);
     }
 
-    [HttpPut("{id:guid}", Name = "Update")]
+    [HttpPut("{id:guid}")]
     public async Task<IActionResult> UpdateWorkday(Guid id, [FromBody] WorkDay? updatedWorkday)
     {
         if (updatedWorkday == null)
@@ -82,7 +82,7 @@ public class WorkdayController(IApplicationMediator mediator) : ControllerBase
         return Ok(existingWorkday);
     }
 
-    [HttpDelete("{id:guid}", Name = "Delete")]
+    [HttpDelete("{id:guid}")]
     public async Task<IActionResult> DeleteWorkday(Guid id)
     {
         var workdayRequest = new WorkdayRequest { Id = id };

@@ -17,7 +17,7 @@ public sealed class AppDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseNpgsql("User ID=postgres;Password=asupim55;Server=localhost;Port=5432;Database=db_task;");
+        optionsBuilder.UseNpgsql("User ID=postgres;Password=asupim55;Server=localhost;Port=5432;Database=quick-start;");
         base.OnConfiguring(optionsBuilder);
     }
 }

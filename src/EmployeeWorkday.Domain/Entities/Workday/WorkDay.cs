@@ -8,6 +8,7 @@ namespace EmployeeWorkday.Domain.Entities.Workday;
 public class WorkDay : BaseAuditableEntity
 {
     public Guid EmployeeId { get; set; }
+    
     public Employee.Employee Employee { get; set; }
 
     /// <summary>
